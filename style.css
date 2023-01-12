@@ -1,0 +1,22 @@
+body {
+    background-color: #111;
+    color : white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: url("img/bg.png");
+    background-repeat: repeat;
+}
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+}
+
+#gameCanvas {
+    position: absolute; 
+    top: 100px; 
+    left: 0px; 
+    right: 0px; 
+    bottom: 0px; 
+    margin: auto; 
+    border: 2px solid rgb(0, 195, 255);
+}
