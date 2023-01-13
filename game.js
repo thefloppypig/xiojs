@@ -4,7 +4,9 @@ var canvas;
 var ctx;
 var images;
 var audioBoom;
+var musicPlaying;
 var audioWave;
+var music ;
 
 var startTime;
 var wave = 1;
@@ -31,11 +33,20 @@ function main() {
 }
 
 function loadAudio() {
-    var music = new Audio('audio/music.wav');
+    music = new Audio('audio/music.wav');
     music.loop = true;
-    music.play();
     audioBoom = new Audio('audio/boom.mp3');
     audioWave = new Audio('audio/wave.wav');
+}
+
+function toggleMusic() {
+    if (musicPlaying) {
+        music.pause();
+    }
+    else {
+        music.play();
+    }
+    musicPlaying = !musicPlaying;
 }
 
 function startGame() {

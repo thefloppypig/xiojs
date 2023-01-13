@@ -1,9 +1,18 @@
-body {
-    background-color: #111;
+* {
     color : white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+html {
     background-image: url("img/bg.png");
     background-repeat: repeat;
+    background-color: #111;
+}
+
+button {
+    border: 2px solid rgb(0, 195, 255);
+    font-size: 25px;
+    background-color: #111;
 }
 
 h1 {
