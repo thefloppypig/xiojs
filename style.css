@@ -1,9 +1,10 @@
 * {
-    color : white;
+    color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 html {
+    text-align: center;
     background-image: url("img/bg.png");
     background-repeat: repeat;
     background-color: #111;
@@ -16,16 +17,33 @@ button {
 }
 
 h1 {
-    text-align: center;
     font-size: 100px;
+    margin: 0;
 }
 
+#startButton {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 50px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+
+#startButton:hover {
+    background-color: rgb(86, 125, 255);
+}
+
+
 #gameCanvas {
-    position: absolute; 
-    top: 100px; 
-    left: 0px; 
-    right: 0px; 
-    bottom: 0px; 
-    margin: auto; 
     border: 2px solid rgb(0, 195, 255);
+    max-width: 99vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
 }

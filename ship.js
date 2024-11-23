@@ -19,8 +19,8 @@ class Ship {
 
     isPlayer() {
         return false;
-    } 
-    
+    }
+
     isEnemy() {
         return false;
     }
@@ -35,10 +35,10 @@ class Ship {
         let dy = this.ty - this.y;
         const accDist = 4 * this.maxSpeed;
         if ((dx > accDist || dx < -accDist) || (dy > accDist || dy < -accDist)) {//accelerate if close
-            this.speed = (this.speed + this.maxSpeed/150).clamp(0, this.maxSpeed);
+            this.speed = (this.speed + this.maxSpeed / 150).clamp(0, this.maxSpeed);
         }
         else {
-            this.speed = (this.speed - this.maxSpeed/60).clamp(0, this.maxSpeed);
+            this.speed = (this.speed - this.maxSpeed / 60).clamp(0, this.maxSpeed);
         }
         let prevRot = this.rot;
         let newRot = Math.atan2(dy, dx);
@@ -58,15 +58,15 @@ class Ship {
         }
         else {
             this.y = this.y + ym;
-        }   
+        }
     }
 
     shootWeapon() {
-        this.weapon.shoot(this.x,this.y,this.rot);
+        this.weapon.shoot(this.x, this.y, this.rot);
     }
 
     draw() {
-        drawImage(images[this.imageName], this.x, this.y, this.scale, this.rot + Math.PI/2);
+        drawImage(images[this.imageName], this.x, this.y, this.scale, this.rot + Math.PI / 2);
     }
 
     destroy() {
@@ -128,7 +128,7 @@ class Enemy extends Ship {
         let y;
         switch (mode) {
             case SpawnMode.AnyEdge:
-                if (randomBool()){//horizontal
+                if (randomBool()) {//horizontal
                     x = Math.random() * canvas.width;
                     y = randomBool() ? 0 : canvas.height;
                 }
@@ -149,23 +149,23 @@ class Enemy extends Ship {
                 break;
         }
         let enemy = new Enemy(imageName, x, y, maxSpeed, turnSpeed, weapon)
-        enemy.rot =  Math.atan2(player?.y - enemy.y, player?.x - enemy.x);
+        enemy.rot = Math.atan2(player?.y - enemy.y, player?.x - enemy.x);
     }
 
     static SpawnCulex() {
-        Enemy.Spawn("st", SpawnMode.LeftRightEdge, 1, 0.005, Weapon.EnemyWeaponDefault()); 
+        Enemy.Spawn("st", SpawnMode.LeftRightEdge, 1, 0.005, Weapon.EnemyWeaponDefault());
     }
-    
+
     static SpawnDorcus() {
-        Enemy.Spawn("g", SpawnMode.TopBottomEdge, 2, 0.005, Weapon.EnemyWeaponBig()); 
+        Enemy.Spawn("g", SpawnMode.TopBottomEdge, 2, 0.005, Weapon.EnemyWeaponBig());
     }
 
     static SpawnVenari() {
-        Enemy.Spawn("v", SpawnMode.AnyEdge, 3, 0.02, Weapon.EnemyWeaponShot()); 
+        Enemy.Spawn("v", SpawnMode.AnyEdge, 3, 0.02, Weapon.EnemyWeaponShot());
     }
 
     static SpawnAnisotera() {
-        Enemy.Spawn("d", SpawnMode.LeftRightEdge, 1, 0.02, Weapon.EnemyWeaponMachine()); 
+        Enemy.Spawn("d", SpawnMode.LeftRightEdge, 1, 0.02, Weapon.EnemyWeaponMachine());
     }
 }
 
