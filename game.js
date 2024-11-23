@@ -22,6 +22,10 @@ document.addEventListener('wheel', event => {
     event.preventDefault();
 }, { passive: false });
 
+const loadImagesPromise = new Promise((resolve) => {
+    images = loadImages(["s1", "s2", "s3", "st", "g", "v", "d"], resolve);
+});
+
 function main() {
     const startButton = document.getElementById('startButton');
     startButton.remove();
@@ -40,7 +44,7 @@ function main() {
     ctx = canvas.getContext('2d');
     ctx.font = "36px impact";
     loadAudio();
-    images = loadImages(["s1", "s2", "s3", "st", "g", "v", "d"], startGame);
+    loadImagesPromise.then(() => startGame());
 }
 
 function loadAudio() {
